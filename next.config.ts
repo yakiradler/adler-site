@@ -4,8 +4,12 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: "/adler-site",
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: "/adler-site",
+  },
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/imageLoader.ts",
   },
 };
 
