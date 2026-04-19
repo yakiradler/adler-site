@@ -3,7 +3,7 @@ import FadeIn from "./FadeIn";
 
 export default function Vision() {
   return (
-    <section id="vision" className="bg-white text-black py-40 px-6">
+    <section id="vision" className="bg-white text-black py-20 md:py-40 px-6">
       <div className="max-w-5xl mx-auto text-center">
         <FadeIn>
           {/* Logo — מרכזי, לא דומיננטי */}

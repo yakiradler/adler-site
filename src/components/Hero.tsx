@@ -7,22 +7,22 @@ import FadeIn from "./FadeIn";
 export default function Hero() {
   return (
     <section className="relative w-full bg-black overflow-hidden">
-      {/* Image at natural 16:9 ratio — no cropping */}
-      <div className="relative w-full">
+      {/* Mobile: near-full-screen height with cover. Desktop: natural 16:9 ratio */}
+      <div className="relative w-full h-[92vw] sm:h-auto sm:aspect-[1012/566]">
         <Image
           src="/product/hero-main.jpg"
           alt="ADLER hero"
-          width={1012}
-          height={566}
-          className="w-full h-auto block"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
           priority
         />
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/35 to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/65" />
 
-        {/* Content centered over image */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-14">
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-10 sm:pt-14">
           <FadeIn>
             <span
               className="text-zinc-400 text-xs md:text-sm font-medium mb-3 md:mb-6 block tracking-widest uppercase"
@@ -34,7 +34,7 @@ export default function Hero() {
 
           <FadeIn delay={0.15}>
             <h1
-              className="text-5xl sm:text-7xl md:text-[130px] font-black tracking-tighter leading-none mb-3 md:mb-8 text-white"
+              className="text-6xl sm:text-7xl md:text-[130px] font-black tracking-tighter leading-none mb-3 md:mb-8 text-white"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               ADLER
@@ -42,7 +42,7 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <p className="text-lg md:text-3xl font-light text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-5 md:mb-12">
+            <p className="text-xl md:text-3xl font-light text-zinc-300 max-w-2xl mx-auto leading-relaxed mb-6 md:mb-12">
               מגן תפילין.
             </p>
           </FadeIn>
@@ -73,7 +73,7 @@ export default function Hero() {
           className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <span
-            className="text-zinc-500 text-xs tracking-widest uppercase"
+            className="text-zinc-500 text-xs tracking-widest uppercase hidden sm:block"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             Scroll
@@ -81,7 +81,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-px h-8 md:h-10 bg-white opacity-30"
+            className="w-px h-6 md:h-10 bg-white opacity-30"
           />
         </motion.div>
       </div>
